@@ -1,41 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Nunito:ital@0;1&display=swap');
-
-header{
-    position:fixed;
-    top:0px;
-    width:100%; 
-    height:19px;
-    padding:25px 0px;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    background-color:black;
-    opacity:0.7;
-}
-@Media (max-width: 500px){
-    body {
-        flex-wrap:wrap;
-    }
-}
-
-
-#body{
-    font-family:'nunito';
-   background-color:black;
-    color:white;
-    line-height:1.4;
-    width:100%;
-    
-}
-h2 {
-    font-size:2em;
-}
-h3 {
-    font-size:3em;
-    
-}
-
-
 #portofolio {
     margin-left:27%;
     margin-top:45%;
@@ -116,7 +78,7 @@ h3 {
 }
 #padding {
     position:relative;
-    bottom:350px;
+    bottom:400px;
   
   
 }
@@ -139,4 +101,22 @@ a:hover{
     filter: brightness(150%);
     filter: drop-shadow(8px 8px 10px yellow);
   }
+.nav-link1{
+    color:aqua;
+}
+
+.center {
+    display:block;
+    margin-left:auto;
+    margin-right:auto;
+    width:20%;
+    padding-top:1rem;
+    border-radius:70px;
+    
+}
+p {
+    text-align:center;
+    padding-top:2rem;
+    
+}
 

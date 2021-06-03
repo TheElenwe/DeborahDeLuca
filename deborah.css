@@ -157,6 +157,18 @@ p {
     padding-top:2rem;
     
 }
-button{
-  margin-top:1rem;
+#imgSmall {
+    position:relative;
+    bottom:20px;
 }
+#a {
+   text-align:center;
+   display:block;
+   position:relative;
+   left:11rem;
+   bottom:24rem;
+   color:rgb(255, 255, 255);
+    
+   
+}
+

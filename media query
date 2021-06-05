@@ -1,0 +1,23 @@
+@media only screen and (max-width: 600px) {
+    #padding {
+       
+        font-size:10px;
+        position:relative;
+        padding-top:15rem;
+        width:1400px;
+        height:1400px;
+        overflow:hidden;
+       
+        
+    }
+}
+
+@media (max-width: 480px) {
+    #header{
+        display:flex;
+        font-size:10px;
+        position:relative;
+     
+        
+    }
+}

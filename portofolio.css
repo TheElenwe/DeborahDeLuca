@@ -8,24 +8,21 @@ body {
   font-family: 'Poppins', sans-serif;
   font-size:1.3rem;
   color:white;
-
+  
   
 }
 .mr-auto{
     justify-content:flex-end;
     padding:10px;
-    
-    
 }
 
 #welcome-section{
- 
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: 55vh;
+  height:100vh;
   background-color: #000;
   background-image: linear-gradient(62deg, #3a3d40 0%, #181719 100%);
   
@@ -42,7 +39,7 @@ body {
   height: 150vh;
 }
 
-h2 {
+#line1 {
   border-bottom: 1px solid white;
 }
 .project {
@@ -80,6 +77,10 @@ h2 {
   top:0.5rem;
 
 }
+a {
+  text-decoration: none;
+
+}
 
 .project:hover .code {
   color: #ff7f50;
@@ -92,6 +93,50 @@ h2 {
 }
 
 .project-title {
- position:fixed;
- width:100%;
+position:fixed;
+width:100%;
+z-index:10; /* οταν κατεβαζουμε την σελιδα το background navbar να φαινεται */
+}
+
+.contact-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  height: 80vh;
+  padding: 0 2rem;
+  background: var(--main-gray);
+}
+
+.dwse {
+  color:white;
+  font-size:50px;
+}
+
+#p2 {
+  font-size:18px;
+  color:rgb(158, 152, 152)
+}
+
+#h2size{
+  font-size:65px;
+  
+}
+
+.contact-section-header > p {
+  font-style: italic;
+}
+
+.contact-links {
+  margin-top:4rem;
+}
+.btn {
+  color:white;
+}
+
+.acenter {
+  display:block;
+  margin:auto;
 }

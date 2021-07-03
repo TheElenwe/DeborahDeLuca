@@ -11,9 +11,21 @@ body {
   
   
 }
+.contact-section {
+  background-image: url("napoleon.png");
+  background-image: url("surveyform.png");
+  background-image: url("portofolio.png");
+  background-image: url("documentation.png");
+}
 .mr-auto{
     justify-content:flex-end;
     padding:10px;
+}
+h1{
+  font-size:4rem;
+}
+.p1 {
+  font-size:1.8rem;
 }
 
 #welcome-section{
@@ -136,7 +148,22 @@ z-index:10; /* οταν κατεβαζουμε την σελιδα το backgrou
   color:white;
 }
 
-.acenter {
-  display:block;
-  margin:auto;
+.contact-details {
+  transition: transform 0.3s ease-out;
 }
+.contact-details:hover {
+  transform: translateY(8px);
+}
+footer {
+  background:var(--main-gray);
+  display:flex;
+  justify-content: space-evenly;
+  padding:2rem;
+  border-top:4px solid var(--main-red);
+}
+
+footer > p {
+  margin:0.7rem;
+   font-size:1.2rem;
+}
+

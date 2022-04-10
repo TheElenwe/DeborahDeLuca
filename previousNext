@@ -1,0 +1,36 @@
+let slider_img=document.querySelector(".slider-img");
+
+  var images = [
+    "https://images.unsplash.com/photo-1541963463532-d68292c34b19?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8Mnx8fGVufDB8fHx8&w=1000&q=80",
+   "https://images.unsplash.com/photo-1503023345310-bd7c1de61c7d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OXx8bWFufGVufDB8fDB8fA%3D%3D&w=1000&q=80",
+   "https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg"
+  
+ ];
+ var i=-1;
+let j=0;
+
+ function next(){
+	if( i >=images.length-1) i=-1
+  i++;
+if(i==2){
+  document.querySelector(".btn").disabled=true;
+  
+}
+
+  return setImg();
+}
+
+
+function prev(){
+	if(i <= 0) i = images.length;	
+	i--;
+  if(i==0){
+    document.querySelector(".btn1").disabled=true;
+  
+  }
+	return setImg();			 
+}
+ function setImg(){
+    return slider_img.setAttribute('src',images[i]);
+     
+ }

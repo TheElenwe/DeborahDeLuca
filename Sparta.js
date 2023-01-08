@@ -2,8 +2,9 @@ import React from "react";
 // import spartaLogo from "../assets/spartaLogo.jpg";
 import spartaVideo from "../assets/spartaVideo.mp4";
 import petra from "../assets/petra.png";
-import petraSecond from "../assets/petraSeocond";
+import petraSecond from "../assets/petraSecond.png";
 import spartaLogo from "../assets/spartaLogo.jpg";
+import foodImage from '../assets/foodImage.jpg'
 import classes from "./Home.module.css";
 
 const Home = (props) => {
@@ -46,6 +47,31 @@ const Home = (props) => {
 
           <video src={spartaVideo} muted autoPlay controls={false} loop />
         </div>
+        <div className={classes.imagesContainer}>
+          <img
+            className={classes.imagePetraSecond}
+            src={petraSecond}
+            alt="petra Second"
+          />
+         
+          <div className={classes.headerSecondContainer}>
+            <h1 className={classes.headerSettings}>Wie alles begann...</h1>
+            <img
+            className={classes.foodImage} 
+            src={foodImage}
+            alt="food"/>
+          
+          <div className={classes.textImage}>
+            <h2 className={classes.homeHeaderChange}>Januar 2013</h2>
+            <p className={classes.homeTextChange}>Schon in jungen Jahren war unsere Liebe zur Gastronomie '<br></br>
+              sehr groß! Vom Augenblick an als<br>
+              </br> wir Dachau kennengelernt haben
+               ist die Idee des Bakalikon entstanden.</p>
+          </div>
+          </div>
+        </div>
+        
+
       </div>
     </React.Fragment>
   );

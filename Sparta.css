@@ -1,0 +1,159 @@
+@import url("https://fonts.googleapis.com/css2?family=Nothing+You+Could+Do&display=swap");
+
+/* 
+.imagesContainer .description {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+} */
+
+.imagesContainer {
+  /* display:flex;
+  height:600px;
+  width:1000px;
+  object-fit: contain; */
+  position: relative;
+  display: flex;
+  flex-direction: row;
+}
+.imageContainer{
+  position: relative;
+  text-align:center;
+  display: flex;
+  align-items: center;
+}
+
+.imagePetra {
+  
+  left: 0;
+  top: 0;
+
+  width: 47.6rem;
+  height: 55.6rem;
+  opacity: 0.4;
+}
+
+.spartaLogo {
+  position:absolute;
+  top:20px;
+  left:120px;
+  width:70px;
+  border-radius: 50%;
+}
+video {
+  right: 0;
+  top: 0;
+  width: 73rem;
+  height: 55.6rem;
+  object-fit: cover;
+}
+.imageHeaderText {
+  position: absolute;
+  top: 50%;;
+  left:35%;
+  transform: translate(-50%, -50%);
+  color: #000000;
+  font-family: "EB Garamond";
+  font-size:3.9vw;
+  font-weight: 600;
+  /* margin-top: 0;
+  margin-bottom: 0;
+   */
+
+}
+
+.icons{
+  color:black;
+}
+
+/* .spartaLogo {
+  display: flex;
+  position: absolute; */
+/* right: 0;
+   top: 0; */
+/* width: 6rem;
+  top: 20px;
+  left: 10rem;
+  border-radius: 10rem;
+} */
+
+/* .description>h1{
+  color: #000000;
+  font-family: "EB Garamond";
+  font-size: 80px;
+  font-weight: 600;
+  position: absolute;
+  top: 18rem;
+  left: 7rem;
+  
+} */
+/* h1 {
+  color: #000000;
+  font-family: "EB Garamond";
+  font-size: 80px;
+  font-weight: 600;
+  position: absolute;
+  top: 18rem;
+  left: 7rem;
+} */
+
+.yearText {
+  position: absolute;
+  left:2rem;
+  font-size: 50%;
+  font-family: "Nothing You Could Do", cursive;
+}
+
+
+/* .instagram {
+  
+  font-size:3rem;
+} */
+
+@media (max-width:  768px) {
+  .imagesContainer {
+    flex-direction: column;
+  }
+  .imagePetra {
+
+    width:100%;
+    height:30rem;
+
+
+  }
+  video {
+    width: 100%;
+    height: auto;
+  }
+  .imageHeaderText{
+  font-size:3rem;
+  float:left;
+
+  
+  
+   
+  
+  }
+  .icons{
+    /* position: relative;
+    top:1rem; */
+  }
+
+}
+/* .main {
+   display:flex;
+    flex-direction: column;
+  }
+  video {
+    display: flex;
+    flex-direction: column;
+    width:100%;
+    height:auto;
+    
+  } */
+/* .spartaLogo{
+    width:100%;
+    height:auto;;
+
+  } */

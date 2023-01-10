@@ -7,16 +7,23 @@
   left: 50%;
   transform: translate(-50%, -50%);
 } */
-
+/* body {
+  overflow-x: hidden;
+} */
 .imagesContainer {
-  /* display:flex;
-  height:600px;
-  width:1000px;
-  object-fit: contain; */
+  /* height:auto;
+  width:auto; */
+  /* object-fit: cover; */
+  /* overflow-x: hidden; */
+  /* position: relative; */
   position: relative;
   display: flex;
   flex-direction: row;
+  /* justify-content: flex-end; */
+
+  overflow-x: hidden;
 }
+
 .imageContainer {
   position: relative;
   text-align: center;
@@ -24,13 +31,9 @@
   align-items: center;
 }
 
-.textHeaderContainer {
-}
-
 .imagePetra {
   left: 0;
   top: 0;
-
   width: 47.6rem;
   height: 55.6rem;
   opacity: 0.4;
@@ -51,19 +54,12 @@ video {
   object-fit: cover;
 }
 .textHeaderContainer {
-  /* position: absolute;
-  top: 50%;
-  left:38%;
-  transform: translate(-50%, -50%); */
   position: relative;
   margin-left: -720px;
   color: #000000;
   font-family: "EB Garamond";
   font-size: 3.9vw;
   font-weight: 600;
-  /* margin-top: 0;
-  margin-bottom: 0;
-   */
 }
 
 .icons {
@@ -81,42 +77,16 @@ video {
   border-radius: 10rem;
 } */
 
-/* .description>h1{
-  color: #000000;
-  font-family: "EB Garamond";
-  font-size: 80px;
-  font-weight: 600;
-  position: absolute;
-  top: 18rem;
-  left: 7rem;
-  
-} */
-/* h1 {
-  color: #000000;
-  font-family: "EB Garamond";
-  font-size: 80px;
-  font-weight: 600;
-  position: absolute;
-  top: 18rem;
-  left: 7rem;
-} */
-
 .yearText {
-  /* position: absolute; */
-  /* left:2rem; */
   font-size: 50%;
   font-family: "Nothing You Could Do", cursive;
 }
 
-/* .instagram {
-  
-  font-size:3rem;
-} */
-
 .imagePetraSecond {
   position: relative;
-  width: 200rem;
-  height: 50%;
+  width: 100%;
+  height: 68rem;
+  flex: 0 0 auto;
 }
 
 .headerSecondContainer {
@@ -131,49 +101,84 @@ video {
   width: 72rem;
   height: 52rem;
 }
-.headerSettings {
-  position: relative;
-  top: 2rem;
-  color: #000000;
-  font-family: "EB Garamond";
-  font-size: 3.9vw;
-}
-.textImage {
-  position: relative;
-  bottom: 30rem;
-  left: 50rem;
-}
+
+ .textImage {
+  position:absolute;
+  right: -23rem;
+  top: 50%;
+  transform: translateY(-50%);
+  
+  align-items: right; 
+   /* position: relative;
+  bottom: 35rem;
+  left: 51rem;
+  height: 3rem;  */
+} 
 .homeTextChange {
   color: #c89f5f;
   position: relative;
   left: 10rem;
   font-size: 23px;
 }
+
+.headerSettings {
+  position: relative;
+  top: 2rem;
+  font-size: 80px;
+  font-family: "EB Garamond";
+}
 .homeHeaderChange {
   font-family: "Nothing You Could Do";
   font-size: 40px;
 }
+.imagesContainerIcons {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.bigImage {
+  width: 100%;
+  height: auto;
+}
+
+.iconButtonsContainer {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.leftIconButton{
+  position: absolute;
+  left: 15px;
+}
+
+.rightIconButton{
+  position: absolute;
+  right: 15px;
+}
+
 
 @media (max-width: 768px) {
   .imagesContainer {
     flex-direction: column;
-    overflow-x: hidden;
   }
 
   .imagePetra {
     width: 100%;
-    height: 30rem;
-    /* height:auto;
-    width:100%; */
+    height: 25rem;
   }
   video {
     width: 100%;
     height: auto;
   }
   .textHeaderContainer {
-    /* position:absolute;
-    right:5rem;
-   */
     margin-right: -360px;
     font-size: 2.2rem;
   }
@@ -187,20 +192,39 @@ video {
     position: relative;
     top: 2rem;
   }
-}
-/* .main {
-   display:flex;
-    flex-direction: column;
+
+  .foodImage {
+    width: 100%;
+    height: 25rem;
   }
-  video {
+  .headerSettings {
+    position: relative;
+    top: -2rem;
+    font-size: 2rem;
+  }
+  .foodImage {
+    top: -2px;
+  }
+  .textImage {
     display: flex;
     flex-direction: column;
-    width:100%;
-    height:auto;
-    
-  } */
-/* .spartaLogo{
-    width:100%;
-    height:auto;;
-  } */
-
+    align-items: center;
+    position: relative;
+    top: 9rem;
+    left: -9rem;
+  }
+  .homeHeaderChange {
+    position: relative;
+    left: 8rem;
+  }
+  .imagePetraSecond {
+    width: 100%;
+    height: 60rem;
+  }
+  .homeTextChange {
+    position: relative;
+    margin-left: -3rem;
+    font-size: 20px;
+    top: -2rem;
+  }
+}

@@ -20,8 +20,8 @@
   display: flex;
   flex-direction: row;
   /* justify-content: flex-end; */
-
-  overflow-x: hidden;
+  overflow: hidden;
+  /* overflow-x: hidden; */
 }
 
 .imageContainer {
@@ -46,10 +46,9 @@
   width: 70px;
   border-radius: 50%;
 }
+
 video {
-  right: 0;
-  top: 0;
-  width: 73rem;
+  width: 71.4rem;
   height: 55.6rem;
   object-fit: cover;
 }
@@ -85,8 +84,9 @@ video {
 .imagePetraSecond {
   position: relative;
   width: 100%;
-  height: 68rem;
-  flex: 0 0 auto;
+  /* height: 68rem; */
+  height: 74rem;
+  /* flex: 0 0 auto; */
 }
 
 .headerSecondContainer {
@@ -102,18 +102,18 @@ video {
   height: 52rem;
 }
 
- .textImage {
-  position:absolute;
+.textImage {
+  position: absolute;
   right: -23rem;
   top: 50%;
   transform: translateY(-50%);
-  
-  align-items: right; 
-   /* position: relative;
+
+  align-items: right;
+  /* position: relative;
   bottom: 35rem;
   left: 51rem;
   height: 3rem;  */
-} 
+}
 .homeTextChange {
   color: #c89f5f;
   position: relative;
@@ -140,7 +140,7 @@ video {
 
 .bigImage {
   width: 100%;
-  height: auto;
+  height: 60rem;
 }
 
 .iconButtonsContainer {
@@ -154,17 +154,26 @@ video {
   justify-content: space-between;
 }
 
-.leftIconButton{
+.leftIconButton {
   position: absolute;
   left: 15px;
 }
 
-.rightIconButton{
+.rightIconButton {
   position: absolute;
   right: 15px;
 }
+.iconLeftRight {
+  cursor: pointer;
+  color: #c89f5f;
+  font-size: 2.6rem;
+}
 
-
+.petraBackgroundThird {
+  width: 100%;
+  height: 83rem;
+  opacity: 0.4;
+}
 @media (max-width: 768px) {
   .imagesContainer {
     flex-direction: column;
@@ -226,5 +235,9 @@ video {
     margin-left: -3rem;
     font-size: 20px;
     top: -2rem;
+  }
+  .bigImage {
+    height: 25rem;
+    object-fit: cover;
   }
 }

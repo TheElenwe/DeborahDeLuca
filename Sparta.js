@@ -5,36 +5,54 @@ import petra from "../assets/petra.png";
 import petraSecond from "../assets/petraSecond.png";
 import spartaLogo from "../assets/spartaLogo.jpg";
 import foodImage from "../assets/foodImage.jpg";
-import currentImage from "../assets/currentImage.jpg";
+import defaultImage from "../assets/defaultImage.jpg";
+import imageLeftRightFirst from "../assets/imageLeftRightFirst.jpg";
+import imageLeftRightSecond from "../assets/imageLeftRightSecond.jpg";
+import transformImageFirst from "../assets/transformImageFirst.jpg";
 import classes from "./Home.module.css";
+
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 
 const Home = (props) => {
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const images = [defaultImage, imageLeftRightFirst, imageLeftRightSecond];
+  const [currentImage, setCurrentImage] = useState(images[0]);
 
-  const images = [{ src: { currentImage } }];
+  // const images= [imageLeftRightFirst,imageLeftRightSecond];
 
-  const righChangeHanlder = () => {
-    setCurrentImageIndex(images);
+  // const imageSecond = [imageLeftRightSecond]
+
+  const rightChangeHandler = (event) => {
+    const nextImage =
+      images[(images.indexOf(currentImage) + 1) % images.length];
+    setCurrentImage(nextImage);
+  };
+
+  const leftChangeHandler = (event) => {
+    let prevImage;
+    if (images.indexOf(currentImage) === 0) {
+      prevImage = images[images.length - 1];
+    } else {
+      prevImage = images[images.indexOf(currentImage) - 1];
+    }
+    setCurrentImage(prevImage);
   };
   // const styles = {
   //   body: {
   //     overflowX: "hidden",
   //   },
   // };
+
   return (
     <React.Fragment>
       {/* <div style={styles.body}> */}
       <div className={classes.imagesContainer}>
         <div className={classes.imageContainer}>
           <img className={classes.imagePetra} src={petra} alt="Petra" />
-
           <img
             className={classes.spartaLogo}
             src={spartaLogo}
             alt="sparta logo"
           />
-
           <div>
             <h1 className={classes.textHeaderContainer}>
               <span className={classes.headerChange}>
@@ -43,18 +61,24 @@ const Home = (props) => {
               </span>
               <br></br>
               <span className={classes.yearText}>Seit 2013</span> <br></br>
-              <a href="/" target="_blank" className={classes.icons}>
+              <a href="/" className={classes.icons}>
                 <i className="fa fa-facebook-square"></i>
               </a>
               &nbsp; &nbsp;
-              <a href="/" target="_blank" className={classes.icons}>
+              <a href="/" className={classes.icons}>
                 <i className="fa fa-instagram"></i>
               </a>
             </h1>
           </div>
         </div>
-
-        <video src={spartaVideo} muted autoPlay controls={false} loop />
+        <video
+          className={classes.petraVideo}
+          src={spartaVideo}
+          muted
+          autoPlay
+          controls={false}
+          loop
+        />
       </div>
       <div className={classes.imagesContainer}>
         <img
@@ -63,7 +87,7 @@ const Home = (props) => {
           alt="petra Second"
         />
 
-         <div className={classes.headerSecondContainer}>
+        <div className={classes.headerSecondContainer}>
           <h1 className={classes.headerSettings}>Wie alles begann...</h1>
           <img className={classes.foodImage} src={foodImage} alt="food" />
 
@@ -75,28 +99,38 @@ const Home = (props) => {
               sehr groß! Vom Augenblick an als<br></br> wir Dachau kennengelernt
               haben ist <br></br>die <br></br>Idee des Bakalikon entstanden.
             </p>
-          </div> 
-         </div> 
-         </div>
-         <div className={classes.imagesContainerIcons}>
-         <img src={currentImage} alt="Last Image" className={classes.bigImage} /> 
-      <div classes={classes.iconButtonsContainer}>
-        <button className={classes.leftIconButton}>
-          <FaChevronLeft />
-        </button>
-        <button className={classes.rightIconButton}>
-          <FaChevronRight />
-        </button>
+          </div>
+        </div>
+      </div>
+      <div className={classes.imagesContainerIcons}>
+        <img src={currentImage} alt="food" className={classes.bigImage} />
+        {/* <img
+          src={images[currentImageIndex]}
+          alt="food"
+          className={classes.bigImage}
+        />
+        ) */}
+        <div className={classes.iconButtonsContainer}>
+          {/* <a className={classes.leftIconButton}> */}
+          <FaChevronLeft
+            onClick={leftChangeHandler}
+            className={`${classes.iconLeftRight} ${classes.leftIconButton}`}
+          />
+          {/* </a>  */}
+
+          {/* <a  href="/" className={classes.rightIconButton}> */}
+          <FaChevronRight
+            onClick={rightChangeHandler}
+            className={`${classes.iconLeftRight} ${classes.rightIconButton}`}
+          />
+
+          {/* </a> */}
+        </div>
       </div>
 
-      
-     
-    
-  
-
-    </div> 
-    {/* </div> */}
-       {/* </div>  */}
+      <div className={classes.petraThird}>
+        <img src={petra} className={classes.petraBackgroundThird} />
+      </div>
     </React.Fragment>
   );
 };

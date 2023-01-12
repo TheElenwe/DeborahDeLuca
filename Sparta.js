@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 // import spartaLogo from "../assets/spartaLogo.jpg";
 import spartaVideo from "../assets/spartaVideo.mp4";
 import petra from "../assets/petra.png";
@@ -9,6 +9,7 @@ import defaultImage from "../assets/defaultImage.jpg";
 import imageLeftRightFirst from "../assets/imageLeftRightFirst.jpg";
 import imageLeftRightSecond from "../assets/imageLeftRightSecond.jpg";
 import transformImageFirst from "../assets/transformImageFirst.jpg";
+import transformImageSecondWein from "../assets/transformImageSecondWein.jpg";
 import classes from "./Home.module.css";
 
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
@@ -36,6 +37,33 @@ const Home = (props) => {
     }
     setCurrentImage(prevImage);
   };
+
+  let img1Ref = React.createRef();
+  let img2Ref = React.createRef();
+  let last_pos = window.pageYOffset;
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  });
+
+  const handleScroll = () => {
+    let current_pos = window.pageYOffset;
+    if (img1Ref.current) {
+      if (current_pos > last_pos)
+        img1Ref.current.style.transform = `translateY(-100px)`;
+      else img1Ref.current.style.transform = `translateY(100px)`;
+    }
+    if (img2Ref.current) {
+      if (current_pos > last_pos)
+        img2Ref.current.style.transform = `translateY(100px)`;
+      else img2Ref.current.style.transform = `translateY(-100px)`;
+    }
+  };
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   // const styles = {
   //   body: {
   //     overflowX: "hidden",
@@ -128,8 +156,34 @@ const Home = (props) => {
         </div>
       </div>
 
-      <div className={classes.petraThird}>
-        <img src={petra} className={classes.petraBackgroundThird} />
+      <div className={classes.imagesContainer}>
+        <div className={classes.transformImage}>
+          <div className={classes.transformImages}>
+            <img
+              ref={img1Ref}
+              src={transformImageFirst}
+              className={classes.imgTransform}
+              alt="food"
+              style={{ width: "32rem", height: "50rem" }}
+            />
+            <h2 className={classes.centerH2TransformImage}>
+              Spein
+            </h2>
+          </div>
+
+          <img
+            ref={img2Ref}
+            src={transformImageSecondWein}
+            className={classes.imgTransform}
+            alt="foodx"
+            style={{ width: "32rem", height: "50rem" }}
+          />
+        </div>
+        <img
+          src={petra}
+          className={classes.petraBackgroundThird}
+          alt="petraThird"
+        />
       </div>
     </React.Fragment>
   );

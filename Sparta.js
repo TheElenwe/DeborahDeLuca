@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 // import spartaLogo from "../assets/spartaLogo.jpg";
 import spartaVideo from "../assets/spartaVideo.mp4";
 import petra from "../assets/petra.png";
@@ -38,31 +38,70 @@ const Home = (props) => {
     setCurrentImage(prevImage);
   };
 
-  let img1Ref = React.createRef();
-  let img2Ref = React.createRef();
-  let last_pos = window.pageYOffset;
-  useEffect(() => {
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  });
+  const imageTransform1Ref = useRef(null);
+  const imageTransform2Ref = useRef(null);
+  const h2TransformRef = useRef(null);
 
-  const handleScroll = () => {
-    let current_pos = window.pageYOffset;
-    if (img1Ref.current) {
-      if (current_pos > last_pos)
-        img1Ref.current.style.transform = `translateY(-100px)`;
-      else img1Ref.current.style.transform = `translateY(100px)`;
-    }
-    if (img2Ref.current) {
-      if (current_pos > last_pos)
-        img2Ref.current.style.transform = `translateY(100px)`;
-      else img2Ref.current.style.transform = `translateY(-100px)`;
-    }
-  };
   useEffect(() => {
+    let last_pos = window.pageYOffset;
+    const handleScroll = () => {
+      let current_pos = window.pageYOffset;
+      if (current_pos > last_pos) {
+        imageTransform1Ref.current.style.transform = `translateY(100px)`;
+        imageTransform2Ref.current.style.transform = `translateY(-100px)`;
+        h2TransformRef.current.style.transform = `translateY(200px)`;
+      } else {
+        imageTransform1Ref.current.style.transform = `translateY(-100px)`;
+        imageTransform2Ref.current.style.transform = `translateY(100px)`;
+        h2TransformRef.current.style.transform = `translateY(-50px)`;
+      }
+      console.log('scroll')
+      last_pos = current_pos;
+    };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+    
+  }, [imageTransform1Ref, imageTransform2Ref, h2TransformRef]);
+
+
+  // let img1Ref = React.createRef();
+  // let img2Ref = React.createRef();
+
+  // let h2Ref = React.createRef();
+  // let last_pos = window.pageYOffset;
+
+  // const handleScroll = () => {
+
+  //   let current_pos = window.pageYOffset;
+  //   if (img1Ref.current) {
+  //     if (current_pos > last_pos)
+  //       img1Ref.current.style.transform = `translateY(-100px)`;
+  //     else img1Ref.current.style.transform = `translateY(100px)`;
+  //   }
+  //   if (img2Ref.current) {
+  //     if (current_pos > last_pos)
+  //       img2Ref.current.style.transform = `translateY(100px)`;
+  //     else img2Ref.current.style.transform = `translateY(-100px)`;
+  //   }
+
+  // if (h2Ref.current) {
+  //   if (current_pos > last_pos)
+  //   h2Ref.current.style.transform = `translateY(50px)`;
+  //    else  h2Ref.current.style.transform = `translateY(200px)`;
+  // }
+  // };
+  // useEffect(() => {
+
+  //   window.addEventListener("scroll", handleScroll);
+  //   return () => window.removeEventListener("scroll", handleScroll);
+
+  // });
+
+  // useEffect(() => {
+  //   window.addEventListener("scroll", handleScroll);
+  //   return () => window.removeEventListener("scroll", handleScroll);
+
+  // },[]);
 
   // const styles = {
   //   body: {
@@ -82,7 +121,7 @@ const Home = (props) => {
             alt="sparta logo"
           />
           <div>
-            <h1 className={classes.textHeaderContainer}>
+            <h1   className={classes.textHeaderContainer}>
               <span className={classes.headerChange}>
                 {" "}
                 Im Herzen von Dachau
@@ -160,19 +199,18 @@ const Home = (props) => {
         <div className={classes.transformImage}>
           <div className={classes.transformImages}>
             <img
-              ref={img1Ref}
+              ref={imageTransform1Ref}
               src={transformImageFirst}
               className={classes.imgTransform}
               alt="food"
               style={{ width: "32rem", height: "50rem" }}
             />
-            <h2 className={classes.centerH2TransformImage}>
-              Spein
-            </h2>
+
+            <h2 ref={ h2TransformRef} className={classes.centerH2TransformImage}>Spein</h2>
           </div>
 
           <img
-            ref={img2Ref}
+            ref={imageTransform2Ref}
             src={transformImageSecondWein}
             className={classes.imgTransform}
             alt="foodx"

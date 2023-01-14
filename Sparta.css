@@ -16,6 +16,7 @@
   /* object-fit: cover; */
   /* overflow-x: hidden; */
   /* position: relative; */
+  
   position: relative;
   display: flex;
   flex-direction: row;
@@ -84,9 +85,8 @@ video {
 .imagePetraSecond {
   position: relative;
   width: 100%;
-  /* height: 68rem; */
+
   height: 74rem;
-  /* flex: 0 0 auto; */
 }
 
 .headerSecondContainer {
@@ -109,10 +109,6 @@ video {
   transform: translateY(-50%);
 
   align-items: right;
-  /* position: relative;
-  bottom: 35rem;
-  left: 51rem;
-  height: 3rem;  */
 }
 .homeTextChange {
   color: #c89f5f;
@@ -171,9 +167,84 @@ video {
 
 .petraBackgroundThird {
   width: 100%;
-  height: 83rem;
-  opacity: 0.4;
 }
+.transformImage {
+  /* background-size: cover; */
+  /* height:auto; */
+  
+  overflow:hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.transformImage.imgTransform{
+  /* width:100%; */
+  display: block;
+  transition: transform 2s;
+}
+
+.transformImage:hover .imgTransform{
+  transform:scale(1.3);
+}
+.imgTransform {
+  overflow:hidden;
+  /* transform: scale(1.1);
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out; */
+  filter: brightness(60%);
+  transform: translateY(0);
+  transition: transform 1s ease-out;
+  margin-right: 40px;
+}
+.imgZoom{
+ 
+}
+
+.imgZoom {
+
+}
+
+
+
+.centerH2TransformImage {
+  transform: translateY(0);
+  transition: transform 0.1s ease-in-out;
+  position: absolute;
+  top: 38%;
+  left: 24%;
+  transform: translate(-50%, -50%);
+  color: whitesmoke;
+  font-size: 50px;
+  font-weight: 600;
+}
+
+.centerH2TransformImageWein{
+  transform: translateY(0);
+  transition: transform 0.1s ease-in-out;
+  position: absolute;
+  top:39%;
+  left:73%;
+  transform: translate(-50%, -50%);
+  color: whitesmoke;
+  font-size: 50px;
+  font-weight: 600;
+}
+
+.tsoukrismaWhiteBackground{
+  background-color: white;
+  width:100%;
+  height:40rem;
+}
+/* .centerH2TransformImage {
+  position: absolute;
+  top: 25%;
+  left: 21%;
+  transform: translate(-50%, -50%);
+} */
 @media (max-width: 768px) {
   .imagesContainer {
     flex-direction: column;

@@ -1,28 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Nothing+You+Could+Do&display=swap");
 
-/* 
-.imagesContainer .description {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-} */
-/* body {
-  overflow-x: hidden;
-} */
 .imagesContainer {
-  /* height:auto;
-  width:auto; */
-  /* object-fit: cover; */
-  /* overflow-x: hidden; */
-  /* position: relative; */
-  
   position: relative;
   display: flex;
   flex-direction: row;
-  /* justify-content: flex-end; */
   overflow: hidden;
-  /* overflow-x: hidden; */
 }
 
 .imageContainer {
@@ -65,17 +47,6 @@ video {
 .icons {
   color: black;
 }
-
-/* .spartaLogo {
-  display: flex;
-  position: absolute; */
-/* right: 0;
-   top: 0; */
-/* width: 6rem;
-  top: 20px;
-  left: 10rem;
-  border-radius: 10rem;
-} */
 
 .yearText {
   font-size: 50%;
@@ -166,85 +137,88 @@ video {
 }
 
 .petraBackgroundThird {
+  opacity: 0.4;
   width: 100%;
+  height: 100%;
 }
+
 .transformImage {
-  /* background-size: cover; */
-  /* height:auto; */
-  
-  overflow:hidden;
+  overflow: hidden;
   display: flex;
   justify-content: center;
   align-items: center;
   position: absolute;
   top: 50%;
-  left: 50%;
+  left: 52%;
   transform: translate(-50%, -50%);
 }
-.transformImage.imgTransform{
-  /* width:100%; */
-  display: block;
-  transition: transform 2s;
-}
 
-.transformImage:hover .imgTransform{
-  transform:scale(1.3);
-}
 .imgTransform {
-  overflow:hidden;
-  /* transform: scale(1.1);
-  cursor: pointer;
-  transition: transform 0.2s ease-in-out; */
-  filter: brightness(60%);
+  overflow: hidden;
+  filter: brightness(50%);
   transform: translateY(0);
   transition: transform 1s ease-out;
   margin-right: 40px;
 }
-.imgZoom{
- 
+
+.transformImages:hover img {
+  transform: scale(1.3);
 }
 
-.imgZoom {
-
+.transformImages {
+  height: auto;
+  overflow: hidden;
+  width: 100%;
 }
 
+.zoomContainer {
+  height: auto;
+  overflow: hidden;
+  width: 95%;
+}
+.zoomContainer img {
+  width: 100%;
+  display: block;
+  transition: transform 2s;
+}
 
+.zoomContainer:hover img {
+  transform: scale(1.3);
+}
 
-.centerH2TransformImage {
+ .centerH2TransformImage {
   transform: translateY(0);
   transition: transform 0.1s ease-in-out;
   position: absolute;
-  top: 38%;
-  left: 24%;
-  transform: translate(-50%, -50%);
-  color: whitesmoke;
-  font-size: 50px;
-  font-weight: 600;
-}
 
-.centerH2TransformImageWein{
-  transform: translateY(0);
-  transition: transform 0.1s ease-in-out;
-  position: absolute;
-  top:39%;
-  left:73%;
-  transform: translate(-50%, -50%);
-  color: whitesmoke;
-  font-size: 50px;
-  font-weight: 600;
-}
-
-.tsoukrismaWhiteBackground{
-  background-color: white;
-  width:100%;
-  height:40rem;
-}
-/* .centerH2TransformImage {
-  position: absolute;
   top: 25%;
-  left: 21%;
+
+  left: 25%;
   transform: translate(-50%, -50%);
-} */
+  color: whitesmoke;
+  font-size: 50px;
+  font-weight: 600;
+}
+
+.centerH2TransformImageWein {
+  transform: translateY(0);
+  transition: transform 0.1s ease-in-out;
+  position: absolute;
+
+  top: 25%;
+  left: 75%;
+  transform: translate(-50%, -50%);
+  color: whitesmoke;
+  font-size: 50px;
+  font-weight: 600;
+}
+
+.tsoukrismaWhiteBackground {
+  background-color: white;
+  width: 100%;
+  height: 40rem;
+}
+
 @media (max-width: 768px) {
   .imagesContainer {
     flex-direction: column;
@@ -310,5 +284,32 @@ video {
   .bigImage {
     height: 25rem;
     object-fit: cover;
+  }
+
+  .transformImage {
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: 1fr;
+    width: 90%;
+    top:59rem;
+  }
+  .zoomContainer {
+    height:70%;
+  }
+ 
+  img.transformImageFirst {
+    width: 50%;
+    height: auto;
+}
+  .transformImageSecondWein {
+    transform: translateY(0);
+  }
+  .zoomContainer {
+    transform: translateY(0);
+  }
+  .petraBackgroundThird {
+    width: 100%;
+    height: 100rem;
+   
   }
 }

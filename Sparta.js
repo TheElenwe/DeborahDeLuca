@@ -10,7 +10,7 @@ import imageLeftRightFirst from "../assets/imageLeftRightFirst.jpg";
 import imageLeftRightSecond from "../assets/imageLeftRightSecond.jpg";
 import transformImageFirst from "../assets/transformImageFirst.jpg";
 import transformImageSecondWein from "../assets/transformImageSecondWein.jpg";
-import tsoukrisa from '../assets/tsoukrisma.jpg'
+import tsoukrisa from "../assets/tsoukrisma.jpg";
 import classes from "./Home.module.css";
 
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
@@ -18,10 +18,6 @@ import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 const Home = (props) => {
   const images = [defaultImage, imageLeftRightFirst, imageLeftRightSecond];
   const [currentImage, setCurrentImage] = useState(images[0]);
-
-  // const images= [imageLeftRightFirst,imageLeftRightSecond];
-
-  // const imageSecond = [imageLeftRightSecond]
 
   const rightChangeHandler = (event) => {
     const nextImage =
@@ -48,30 +44,34 @@ const Home = (props) => {
   useEffect(() => {
     let last_pos = window.pageYOffset;
     const handleScroll = () => {
-      const petraBackgroundThird = petraBackgroundThirdRef.current;
-      const petraBackgroundThirdRect =
-        petraBackgroundThird.getBoundingClientRect();
-      const petraBackgroundThirdTop = petraBackgroundThirdRect.top;
-      const petraBackgroundThirdBottom = petraBackgroundThirdRect.bottom;
+      if (window.innerWidth > 600) {
+        const petraBackgroundThird = petraBackgroundThirdRef.current;
+        const petraBackgroundThirdRect =
+          petraBackgroundThird.getBoundingClientRect();
+        const petraBackgroundThirdTop = petraBackgroundThirdRect.top;
+        const petraBackgroundThirdBottom = petraBackgroundThirdRect.bottom;
 
-      if (petraBackgroundThirdTop <= 0 && petraBackgroundThirdBottom >= 0) {
-        let current_pos = window.scrollY;
-        if (current_pos > last_pos) {
-          imageTransform1Ref.current.style.transform = `translateY(100px)`;
-          imageTransform2Ref.current.style.transform = `translateY(-100px)`;
-          h2TransformRef.current.style.transform = `translateY(50px) translateX(-80px)`;
-          h2TransformRefWein.current.style.transform = `translateY(-130px) translateX(-50px)`;
-        } else {
-          imageTransform1Ref.current.style.transform = `translateY(-100px)`;
-          imageTransform2Ref.current.style.transform = `translateY(100px)`;
-          h2TransformRef.current.style.transform = `translateY(-100px) translateX(-80px)`;
-          h2TransformRefWein.current.style.transform = `translateY(70px) translateX(-40px) `;
+        if (petraBackgroundThirdTop <= 0 && petraBackgroundThirdBottom >= 0) {
+          let current_pos = window.scrollY;
+          if (current_pos > last_pos) {
+            imageTransform1Ref.current.style.transform = `translateY(100px)`;
+            imageTransform2Ref.current.style.transform = `translateY(-100px)`;
+            h2TransformRef.current.style.transform = `translateY(50px) translateX(50px)`;
+            h2TransformRefWein.current.style.transform = `translateY(130px) translateX(-190px)`;
+          } else {
+            imageTransform1Ref.current.style.transform = `translateY(-100px)`;
+            imageTransform2Ref.current.style.transform = `translateY(100px)`;
+            h2TransformRef.current.style.transform = `translateY(100px) translateX(50px)`;
+            h2TransformRefWein.current.style.transform = `translateY(70px) translateX(-190px) `;
+          }
+          last_pos = current_pos;
+          console.log("work scrolling");
         }
-        last_pos = current_pos;
-        console.log("work scrolling");
       }
     };
+    imageTransform1Ref.current.classList.add("zoomContainer");
     window.addEventListener("scroll", handleScroll);
+
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
@@ -82,44 +82,6 @@ const Home = (props) => {
     h2TransformRefWein,
     petraBackgroundThirdRef,
   ]);
-  // let img1Ref = React.createRef();
-  // let img2Ref = React.createRef();
-
-  // let h2Ref = React.createRef();
-  // let last_pos = window.pageYOffset;
-
-  // const handleScroll = () => {
-
-  //   let current_pos = window.pageYOffset;
-  //   if (img1Ref.current) {
-  //     if (current_pos > last_pos)
-  //       img1Ref.current.style.transform = `translateY(-100px)`;
-  //     else img1Ref.current.style.transform = `translateY(100px)`;
-  //   }
-  //   if (img2Ref.current) {
-  //     if (current_pos > last_pos)
-  //       img2Ref.current.style.transform = `translateY(100px)`;
-  //     else img2Ref.current.style.transform = `translateY(-100px)`;
-  //   }
-
-  // if (h2Ref.current) {
-  //   if (current_pos > last_pos)
-  //   h2Ref.current.style.transform = `translateY(50px)`;
-  //    else  h2Ref.current.style.transform = `translateY(200px)`;
-  // }
-  // };
-  // useEffect(() => {
-
-  //   window.addEventListener("scroll", handleScroll);
-  //   return () => window.removeEventListener("scroll", handleScroll);
-
-  // });
-
-  // useEffect(() => {
-  //   window.addEventListener("scroll", handleScroll);
-  //   return () => window.removeEventListener("scroll", handleScroll);
-
-  // },[]);
 
   // const styles = {
   //   body: {
@@ -129,7 +91,6 @@ const Home = (props) => {
 
   return (
     <React.Fragment>
-      {/* <div style={styles.body}> */}
       <div className={classes.imagesContainer}>
         <div className={classes.imageContainer}>
           <img className={classes.imagePetra} src={petra} alt="Petra" />
@@ -189,76 +150,72 @@ const Home = (props) => {
       </div>
       <div className={classes.imagesContainerIcons}>
         <img src={currentImage} alt="food" className={classes.bigImage} />
-        {/* <img
-          src={images[currentImageIndex]}
-          alt="food"
-          className={classes.bigImage}
-        />
-        ) */}
+
         <div className={classes.iconButtonsContainer}>
-          {/* <a className={classes.leftIconButton}> */}
           <FaChevronLeft
             onClick={leftChangeHandler}
             className={`${classes.iconLeftRight} ${classes.leftIconButton}`}
           />
-          {/* </a>  */}
 
-          {/* <a  href="/" className={classes.rightIconButton}> */}
           <FaChevronRight
             onClick={rightChangeHandler}
             className={`${classes.iconLeftRight} ${classes.rightIconButton}`}
           />
-
-          {/* </a> */}
         </div>
       </div>
 
       <div className={classes.imagesContainer}>
-        <div className={classes.transformImage}>
-          <div className={classes.transformImages}>
-            <a href="/">
-              <img
-                ref={imageTransform1Ref}
-                src={transformImageFirst}
-                className={`${classes.imgTransform} ${classes.imgZoom}`}
-                alt="food"
-                style={{ width: "32rem", height: "50rem" }}
-              />
-
-              <h2
-                ref={h2TransformRef}
-                className={classes.centerH2TransformImage}
-              >
-                Speisen
-              </h2>
-            </a>
-          </div>
-          <a href="/">
-            <img
-              ref={imageTransform2Ref}
-              src={transformImageSecondWein}
-              className={classes.imgTransform}
-              alt="foodx"
-              style={{ width: "32rem", height: "50rem" }}
-            />
-            <h2
-              ref={h2TransformRefWein}
-              className={classes.centerH2TransformImageWein}
-            >
-              Wein
-            </h2>
-          </a>
-        </div>
         <img
           ref={petraBackgroundThirdRef}
           src={petra}
-          className={classes.petraBackgroundThird}
+          className={`${classes.petraBackgroundThird}`}
           alt="petraThird"
         />
-      </div>
-      <div className={classes.tsoukrismaWhiteBackground}> 
+        <div className={classes.transformImage}>
+          <div className={classes.transformImages}>
+            <div
+              ref={imageTransform1Ref}
+              className={`${classes.zoomContainer} `}
+            >
+              <a href="/">
+                <img
+                  ref={imageTransform1Ref}
+                  src={transformImageFirst}
+                  className={`${classes.imgTransform} ${classes.stopScrolling}`}
+                  alt="food"
+                  style={{ width: "32rem", height: "55rem" }}
+                />
 
+                <h2
+                  ref={h2TransformRef}
+                  className={classes.centerH2TransformImage}
+                >
+                  Speisen
+                </h2>
+              </a>
+            </div>
+          </div>
+          <div ref={imageTransform2Ref} className={classes.zoomContainer}>
+            <a href="/">
+              <img
+                ref={imageTransform2Ref}
+                src={transformImageSecondWein}
+                className={`${classes.imgTransform} ${classes.stopScrolling}  `}
+                alt="foodx"
+                style={{ width: "32rem", height: "55rem" }}
+              />
+              <h2
+                ref={h2TransformRefWein}
+                className={classes.centerH2TransformImageWein}
+              >
+                Wein
+              </h2>
+            </a>
+          </div>
+        </div>
       </div>
+
+      <div className={classes.tsoukrismaWhiteBackground}></div>
     </React.Fragment>
   );
 };

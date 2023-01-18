@@ -1,10 +1,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Nothing+You+Could+Do&display=swap");
-
+@import url("https://fonts.googleapis.com/css2?family=Qwitcher+Grypen&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Abhaya+Libre&display=swap');
 .imagesContainer {
   position: relative;
   display: flex;
   flex-direction: row;
-  overflow: hidden;
+  /* overflow:hidden; */
 }
 
 .imageContainer {
@@ -12,14 +13,19 @@
   text-align: center;
   display: flex;
   align-items: center;
+
 }
 
 .imagePetra {
   left: 0;
   top: 0;
-  width: 47.6rem;
-  height: 55.6rem;
+  /* width: 47.6rem; */
+  /* height: 55.6rem; */
+  width: 38rem;
+  height: 43rem;
+
   opacity: 0.4;
+  padding-bottom: 2rem;
 }
 
 .spartaLogo {
@@ -31,13 +37,20 @@
 }
 
 video {
-  width: 71.4rem;
-  height: 55.6rem;
+  /* width: 57rem; */
+  /* height: 43rem; */
+  /* object-fit: contain;  */
+  width: 57.2rem;
+  height: 43rem;
   object-fit: cover;
+
+  /* width:rem !important; */
+  /* width: 100% !important; */
 }
 .textHeaderContainer {
   position: relative;
-  margin-left: -720px;
+  margin-left: -37vw;
+
   color: #000000;
   font-family: "EB Garamond";
   font-size: 3.9vw;
@@ -57,46 +70,50 @@ video {
   position: relative;
   width: 100%;
 
-  height: 74rem;
+  height: 66rem;
 }
 
 .headerSecondContainer {
   position: absolute;
-  top: 65px;
+  top: 20px;
   left: 0;
   text-align: center;
 }
 
 .foodImage {
   position: relative;
-  width: 72rem;
-  height: 52rem;
+  width: 57rem;
+  height: 50rem;
+  /* height: 45rem; */
 }
 
 .textImage {
   position: absolute;
-  right: -23rem;
-  top: 50%;
+  right: -27rem;
+  top: 55%;
   transform: translateY(-50%);
-
   align-items: right;
 }
 .homeTextChange {
   color: #c89f5f;
   position: relative;
-  left: 10rem;
-  font-size: 23px;
+  text-align: left;
+  left: 4rem;
+  font-size: 26px;
+  line-height: 1.3;
 }
 
 .headerSettings {
   position: relative;
-  top: 2rem;
-  font-size: 80px;
+  top: 1.5rem;
+  font-size: 60px;
   font-family: "EB Garamond";
 }
 .homeHeaderChange {
   font-family: "Nothing You Could Do";
   font-size: 40px;
+  position: relative;
+  top: 1.5vw;
 }
 .imagesContainerIcons {
   position: relative;
@@ -107,7 +124,7 @@ video {
 
 .bigImage {
   width: 100%;
-  height: 60rem;
+  height: 48.5rem;
 }
 
 .iconButtonsContainer {
@@ -151,14 +168,23 @@ video {
   top: 50%;
   left: 52%;
   transform: translate(-50%, -50%);
+  width: 60rem;
 }
 
+.changeImagesTransform {
+  position: relative;
+
+  height: 46rem;
+}
 .imgTransform {
   overflow: hidden;
   filter: brightness(50%);
   transform: translateY(0);
   transition: transform 1s ease-out;
   margin-right: 40px;
+  position: relative;
+
+  /* height:50rem; */
 }
 
 .transformImages:hover img {
@@ -186,7 +212,7 @@ video {
   transform: scale(1.3);
 }
 
- .centerH2TransformImage {
+.centerH2TransformImage {
   transform: translateY(0);
   transition: transform 0.1s ease-in-out;
   position: absolute;
@@ -216,8 +242,244 @@ video {
 .tsoukrismaWhiteBackground {
   background-color: white;
   width: 100%;
-  height: 40rem;
+  /* height: 51rem; */
+  height:60rem;
+  position: relative;
+  overflow: hidden;
 }
+
+.tsoukrisma {
+  width: 40rem;
+  height: 100%;
+
+  object-fit: cover;
+}
+.textImageTwo {
+  position: relative;
+
+
+  bottom:50vw;
+  left:48vw;
+  /* bottom: 42vw;
+  left: 48vw; */
+
+  /* top: 10vw;
+  right: 25vw; */
+}
+.UnserePhilosophie {
+  position: relative;
+  right: -8rem;
+  color: #c89f5f;
+  font-size: 50px;
+  font-family: "Nothing You Could Do";
+}
+.textImageTwoRight {
+  position: absolute;
+  right: -25vw;
+  bottom: 1vw;
+}
+
+.paragraphUnserePhilosophie {
+  position: absolute;
+  font-size: 16px;
+}
+.Kareklas {
+  position: absolute;
+  left: 20vw;
+  top: 23vw;
+  color: #c89f5f;
+  font-size: 70px;
+  font-weight: 400;
+  font-family: "Qwitcher Grypen", cursive;
+
+  /* bottom:-10vw;
+  right:-10rem; */
+}
+
+.petraQuartor {
+  width: 100%;
+  /* height:42rem; */
+  /* height:30rem; */
+  height:42rem;
+  position:relative;
+  opacity: 0.5;
+ 
+  /* position:relative; */
+}
+.containerQuator {
+  position: absolute;
+  left:75px;
+  top: 55%;
+  transform: translateY(-50%);
+  /* top:295rem;
+  left:6rem; */
+
+ 
+} 
+.containerOffungszeiten h3 {
+  font-size:16px;
+  /* font-family: 'Abhaya Libre', serif; */
+
+  
+}
+.containerAdress{
+  /* position:absolute; */
+  position:absolute;
+  top:-36.5rem;
+  left:40rem;
+}
+.adressSpanBottom{
+  position:relative;
+  top:-0.7rem;
+}
+.containerAdress h1 {
+  font-size:42px;
+  font-family:"EB GARAMOND";
+  font-weight:600;
+}
+.adressImage{
+  width:500px;
+  height:500px;
+  object-fit: cover;
+  position:absolute;
+  top:-46rem;
+  left:58rem;
+
+}
+
+.dayOne {
+  color:#C80000;
+  display: flex;
+  justify-content: space-between;
+  /* margin-right: 67rem;
+  position: relative;
+  left: -4rem;
+  top: -1rem; */
+}
+.dayTwo {
+  display: flex;
+  /* justify-content: space-between; */
+   /* margin-right: 61.2rem; */
+  position: relative;
+  top:-2rem;
+  /* right: 2.9rem;
+  top: -3rem; */
+} 
+
+ .dayThree {
+  display: flex;
+  /* justify-content: space-between; */
+  position:relative;
+  top:-4rem;
+  /* margin-right: 61.2rem;
+  position: relative;
+  right: 2.9rem;
+  top: -5rem; */
+} 
+
+.h3Day {
+  position: relative;
+  left: 11rem;
+}
+.h3DayThree{
+  position:relative;
+  left:10.7rem;
+}
+.h3DayFourth {
+  position: relative;
+  left: 9.4rem;
+}
+.h3DayFifth {
+  position: relative;
+  left: 11.8rem;
+}
+.h3DaySeventh {
+  position: relative;
+  left: 11rem;
+}
+
+ .dayFourth {
+  display: flex;
+  /* justify-content: space-around; */
+  /* margin-right: 61.2rem; */
+  position: relative;
+  /* right: 2.7rem; */
+  top: -5.8rem;
+} 
+.dayFifth {
+  display: flex;
+  /* justify-content: space-around; */
+  /* margin-right: 60rem; */
+  position: relative;
+  /* right: 3.6rem; */
+  top: -7.5rem;
+}
+
+.daySixth {
+  display: flex;
+  /* justify-content: space-around;
+  margin-right: 60rem; */
+  position: relative;
+  /* right: 3.6rem; */
+  top: -9.2rem;
+}
+.daySeventh {
+  display: flex;
+  /* justify-content: space-around;
+  margin-right: 62.7rem; */
+  position: relative;
+  /* right: 3.8rem; */
+  top: -11rem;
+} 
+
+
+.Offnugszeiten {
+  font-size: 2.5rem;
+  position:relative;
+  top:1rem;
+} 
+ hr {
+  position: relative;
+  /* top: -1.7rem; */
+  top:-3rem;
+  /* left:-32rem; */
+  width:160%;
+  border: none;
+  height: 0.1px; 
+  background-color: #000000; 
+ 
+ 
+} 
+.horizontallyLineFirst{
+  position:relative;
+  top:-18px;
+}
+ /* .horizontallyLineTwo {
+  position: relative;
+  top: -4rem;
+
+} */
+.horizontallyLineThree {
+  position: relative;
+  top: -5rem;
+
+}
+.horizontallyLineFourth {
+  position: relative;
+  top: -6.7rem;
+
+}
+ .horizontallyLineFifth {
+  position: relative;
+  top: -8.5rem;
+
+}
+.horizontallyLineSixth {
+  position: relative;
+  top: -10.2rem;
+
+}  
+
 
 @media (max-width: 768px) {
   .imagesContainer {
@@ -233,7 +495,8 @@ video {
     height: auto;
   }
   .textHeaderContainer {
-    margin-right: -360px;
+    margin-left: -90vw;
+    /* margin-right: -360px; */
     font-size: 2.2rem;
   }
   .yearText {
@@ -273,11 +536,12 @@ video {
   }
   .imagePetraSecond {
     width: 100%;
-    height: 60rem;
+    height: 52rem;
   }
   .homeTextChange {
     position: relative;
-    margin-left: -3rem;
+    left: 35vw;
+    /* margin-left: 4rem; */
     font-size: 20px;
     top: -2rem;
   }
@@ -287,29 +551,127 @@ video {
   }
 
   .transformImage {
-    display: grid;
-    grid-template-rows: 1fr;
-    grid-template-columns: 1fr;
-    width: 90%;
-    top:59rem;
-  }
-  .zoomContainer {
-    height:70%;
-  }
- 
-  img.transformImageFirst {
-    width: 50%;
+    display: flex;
+    flex-direction: column;
+    width: 95%;
     height: auto;
-}
-  .transformImageSecondWein {
-    transform: translateY(0);
+    margin-top: -1.5rem;
+
+    /* width:100%;
+    height:100%; */
+
+    /* display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: 1fr; */
+    /* width: 100%;
+    top: 59rem;
+    height: 90rem; */
+    /* } */
   }
+
   .zoomContainer {
-    transform: translateY(0);
+    position: relative;
+    margin-top: 2rem;
+    /* top: 2rem; */
   }
   .petraBackgroundThird {
     width: 100%;
-    height: 100rem;
-   
+    height: 70rem;
+    /* height: 75rem; */
+  }
+  .changeImagesTransform {
+    /* height:auto; */
+    height: 27rem;
+  }
+  .imageWeinLeft {
+    position: relative;
+    margin-left: -1.1rem;
+  }
+  .centerH2TransformImage {
+    left: 45vw;
+  }
+  .centerH2TransformImageWein {
+    left: 45vw;
+    bottom: 55vw;
+  }
+  .tsoukrisma {
+    width: 100%;
+    height: 28rem;
+  }
+  .tsoukrismaWhiteBackground {
+    height: 77rem;
+  }
+  .UnserePhilosophie {
+    right: -1vw;
+    font-size: 9vw;
+    /* font-size:35px; */
+    /* font-size:10vw;
+    right:-11vw; */
+  }
+  .paragraphUnserePhilosophie {
+    /* position: absolute; */
+    top: 12vw;
+    font-size: 16px;
+
+    /* left:40px; */
+  }
+  .textImageTwo {
+    /* top:28rem; */
+    top: -3vw;
+    left: 9vw;
+  }
+  .textImageTwoRight {
+    top: 63vw;
+    left: 0.1vw;
+  }
+  .Kareklas {
+    top: 129vw;
+    font-size: 15vw;
+    left: -3vw;
+  }
+
+  .containerQuator{
+ 
+    bottom:-85vw;
+    
+    
+  }
+  .Offnugszeiten{
+
+    left:-8vw;
+  }
+  .dayTextSize{
+   position:relative;
+   left:-12vw;
+  }
+  .h3DayOne{
+    position:relative;
+    left:-25vw;
+  }
+  .h3Day{
+    position:relative;
+    left:15.7vw;
+  }
+  .h3DayThree{
+    position:relative;
+    left:14.2vw;
+  }
+  .h3DayFourth{
+    position:relative;
+    left:10.1vw;
+  }
+  .h3DayFifth{
+    position:relative;
+    left:18.5vw;
+  }
+  .h3DaySeventh{
+    position:relative;
+    left:16vw;
+  }
+  .containerAdress{
+    position:relative;
+    left:2rem;
+    top:-15rem;
   }
 }
+

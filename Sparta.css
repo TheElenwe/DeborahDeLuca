@@ -91,7 +91,8 @@ video {
 }
 
 .textImage {
-  position: absolute;
+    position: absolute;
+   
   right: -27rem;
   top: 55%;
   transform: translateY(-50%);
@@ -759,4 +760,3 @@ display: inline-block;
   
   }
 }
-

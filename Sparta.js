@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
+import { Helmet } from "react-helmet";
 // import spartaLogo from "../assets/spartaLogo.jpg";
 import spartaVideo from "../assets/spartaVideo.mp4";
 import petra from "../assets/petra.png";
@@ -103,6 +104,9 @@ const Home = (props) => {
 
   return (
     <React.Fragment>
+
+     
+    
       <div className={classes.overFlowBody}>
         <div className={classes.imagesContainer}>
           <div className={classes.imageContainer}>
@@ -357,9 +361,9 @@ const Home = (props) => {
         </div>
       </div> */}
       </div>
+     
     </React.Fragment>
   );
 };
 
 export default Home;
-

@@ -8,6 +8,7 @@
 }
 .overFlowBody{
   overflow: hidden;
+
 }
 
 .imageContainer {
@@ -52,7 +53,8 @@ video {
 }
 .textHeaderContainer {
   position: relative;
-  margin-left: -37vw;
+  /* margin-left: -37vw; */
+   margin-left:-41vw;
 
   color: #000000;
   font-family: "EB Garamond";
@@ -73,7 +75,9 @@ video {
   position: relative;
   width: 100%;
 
-  height: 66rem;
+
+  height: 1056px;
+  /* height: 66rem; */
 }
 
 .headerSecondContainer {
@@ -92,8 +96,7 @@ video {
 
 .textImage {
     position: absolute;
-   
-  right: -27rem;
+  right: -430px;
   top: 55%;
   transform: translateY(-50%);
   align-items: right;
@@ -278,9 +281,11 @@ video {
   font-family: "Nothing You Could Do";
 }
 .textImageTwoRight {
-  position: absolute;
-  right: -25vw;
-  bottom: 1vw;
+  position: relative;
+  right:-25vw;
+  bottom:15vw;
+  /* right: -25vw;
+  bottom: 1vw; */
 }
 
 .paragraphUnserePhilosophie {
@@ -558,7 +563,8 @@ display: inline-block;
     height: auto;
   }
   .textHeaderContainer {
-    margin-left: -98vw;
+    margin-left: -102vw;
+    top:5vw;
     /* margin-right: -360px; */
     font-size: 2.2rem;
   }
@@ -580,6 +586,7 @@ display: inline-block;
   .headerSettings {
     position: relative;
     top: -1rem;
+    /* top:-2rem; */
     font-size: 2rem;
   }
   .foodImage {
@@ -587,25 +594,30 @@ display: inline-block;
   }
   .textImage {
     display: flex;
+    
     flex-direction: column;
     align-items: center;
     position: relative;
-    top: 9rem;
-    left: -9rem;
+    top:40vw !important;
+    left:-36vw !important;
+    
   }
   .homeHeaderChange {
     position: relative;
-    left: 8rem;
+    /* left: 10rem; */
+    left:35vw !important;
   }
   .imagePetraSecond {
     width: 100%;
-    height: 52rem;
+    height:52rem;
+    /* height: 52rem; */
   }
   .homeTextChange {
     position: relative;
-    left: 39vw;
+    left: 18vh;
     /* margin-left: 4rem; */
-    font-size: 20px;
+    font-size:1.2rem;
+    /* font-size: 20px; */
     top: -2rem;
   }
   .bigImage {
@@ -665,8 +677,9 @@ display: inline-block;
     height: 77rem;
   }
   .UnserePhilosophie {
-    right: -1vw;
-    font-size: 9vw;
+    right: -1vw !important;
+    font-size:2rem !important;
+    /* font-size: 9vw; */
     /* font-size:35px; */
     /* font-size:10vw;
     right:-11vw; */
@@ -674,7 +687,8 @@ display: inline-block;
   .paragraphUnserePhilosophie {
     /* position: absolute; */
     top: 12vw;
-    font-size: 16px;
+    font-size:1rem !important;
+    /* font-size: 16px; */
 
     /* left:40px; */
   }
@@ -684,8 +698,12 @@ display: inline-block;
     left: 9vw;
   }
   .textImageTwoRight {
-    top: 63vw;
-    left: 0.1vw;
+  
+
+    left:0.3vw;
+    top:10vw;
+    /* top:30vh;
+    left: 0.1vw; */
   }
   .Kareklas {
     top: 140vw;
@@ -760,3 +778,9 @@ display: inline-block;
   
   }
 }
+/* @media (max-height: 600px) {
+  
+  .textImage {
+    height: calc(100vh - 50px);
+  }
+} */

@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
+
 import { Helmet } from "react-helmet";
 // import spartaLogo from "../assets/spartaLogo.jpg";
 import spartaVideo from "../assets/spartaVideo.mp4";
@@ -104,10 +105,15 @@ const Home = (props) => {
 
   return (
     <React.Fragment>
-
-     
     
+
+    <Helmet>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    </Helmet>
       <div className={classes.overFlowBody}>
+      <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+  </head>
         <div className={classes.imagesContainer}>
           <div className={classes.imageContainer}>
             <img className={classes.imagePetra} src={petra} alt="Petra" />
@@ -124,7 +130,7 @@ const Home = (props) => {
                   Im Herzen von <br></br> Dachau
                 </span>
                 <br></br>
-                <span className={classes.yearText}>Seit 2013</span> <br></br>
+                <span className={classes.yearText}>Seit 2027</span> <br></br>
                 <a href="/" className={classes.icons}>
                   <i className="fa fa-facebook-square"></i>
                 </a>
@@ -254,9 +260,10 @@ const Home = (props) => {
               einzigartig.
               <span className={classes.textImageTwoRight}>
                 {" "}
-                <span className={classes.textImageTwoLittleLeft}>
-                  Durch langjähriger Erfahrung ist es uns
-                </span>
+                {/* <span className={classes.textImageTwoLittleLeft}> */}
+                <br></br>
+                Durch langjähriger Erfahrung ist es uns
+                {/* </span> */}
                 <br></br>
                 gelungen, es uns gelungen, hochwertige <br></br>Dienstleistungen
                 in einem gemütlichen und<br></br> gastfreundlichen Ambiente
@@ -361,7 +368,7 @@ const Home = (props) => {
         </div>
       </div> */}
       </div>
-     
+   
     </React.Fragment>
   );
 };

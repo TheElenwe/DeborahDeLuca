@@ -1,160 +1,425 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="deborah.css">
-    <title>Document</title>
+import React, { useState, useEffect, useRef } from "react";
+
+
+// import { Helmet } from "react-helmet";
+// import spartaLogo from "../assets/spartaLogo.jpg";
+// import VisibilitySensor from 'react-visibility-sensor';
+import spartaVideo from "../assets/spartaVideo.mp4";
+import petra from "../assets/petra.png";
+import petraSecond from "../assets/petraSecond.png";
+// import petraQuartor from "../assets/petraQuartor.png";
+import spartaLogo from "../assets/spartaLogo.jpg";
+import foodImage from "../assets/foodImage.jpg";
+import defaultImage from "../assets/defaultImage.jpg";
+import imageLeftRightFirst from "../assets/imageLeftRightFirst.jpg";
+import imageLeftRightSecond from "../assets/imageLeftRightSecond.jpg";
+import transformImageFirst from "../assets/transformImageFirst.jpg";
+import transformImageSecondWein from "../assets/transformImageSecondWein.jpg";
+import tsoukrisma from "../assets/tsoukrisma.jpg";
+import adressImage from "../assets/adressImage.jpg";
+import classes from "./Home.module.css";
+
+
+
+import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
+
+const Home = (props) => {
+
+
+  const images = [defaultImage, imageLeftRightFirst, imageLeftRightSecond];
+  const [currentImage, setCurrentImage] = useState(images[0]);
+
+  const rightChangeHandler = (event) => {
+    const nextImage =
+      images[(images.indexOf(currentImage) + 1) % images.length];
+    setCurrentImage(nextImage);
+  };
+
+  const leftChangeHandler = (event) => {
+    let prevImage;
+    if (images.indexOf(currentImage) === 0) {
+      prevImage = images[images.length - 1];
+    } else {
+      prevImage = images[images.indexOf(currentImage) - 1];
+    }
+    setCurrentImage(prevImage);
+  };
+
+  const imageTransform1Ref = useRef(null);
+  const imageTransform2Ref = useRef(null);
+  const h2TransformRef = useRef(null);
+  const h2TransformRefWein = useRef(null);
+  const petraBackgroundThirdRef = useRef(null);
+
+  useEffect(() => {
+    let last_pos = window.pageYOffset;
+    const handleScroll = () => {
+      if (window.innerWidth > 900) {
+        const petraBackgroundThird = petraBackgroundThirdRef.current;
+        const petraBackgroundThirdRect =
+          petraBackgroundThird.getBoundingClientRect();
+        const petraBackgroundThirdTop = petraBackgroundThirdRect.top;
+        const petraBackgroundThirdBottom = petraBackgroundThirdRect.bottom;
+
+        if (petraBackgroundThirdTop <= 0 && petraBackgroundThirdBottom >= 0) {
+          let current_pos = window.scrollY;
+          if (current_pos > last_pos) {
+            imageTransform1Ref.current.style.transform = `translateY(100px)`;
+            imageTransform2Ref.current.style.transform = `translateY(-100px)`;
+            h2TransformRef.current.style.transform = `translateY(50px) translateX(50px)`;
+            h2TransformRefWein.current.style.transform = `translateY(130px) translateX(-190px)`;
+          } else {
+            imageTransform1Ref.current.style.transform = `translateY(-100px)`;
+            imageTransform2Ref.current.style.transform = `translateY(100px)`;
+            h2TransformRef.current.style.transform = `translateY(100px) translateX(50px)`;
+            h2TransformRefWein.current.style.transform = `translateY(70px) translateX(-190px) `;
+          }
+          last_pos = current_pos;
+          console.log("work scrolling");
+        }
+      }
+    };
+    imageTransform1Ref.current.classList.add("zoomContainer");
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [
+    imageTransform1Ref,
+    imageTransform2Ref,
+    h2TransformRef,
+    h2TransformRefWein,
+    petraBackgroundThirdRef,
+  ]);
+  
+  const [text, setText] = useState("K");
+  const [index, setIndex] = useState(1);
+
+
+  useEffect(() => {
    
-</head>
-<body>
-  <p></p>
-      
-    <img src="" id="image" class="center" alt="">
-    <button>back</button>
+    const interval = setInterval(() => {
+      if (index > 15) {
+        setIndex(1);
+        setText("K");
+      } else {
+        setText(text + "Kareklas Michail".charAt(index));
+        setIndex(index + 1);
+      }
+    }, 150);
+    return () => clearInterval(interval);
+  }, [text, index]);
+
+
+
+  return (
+    <React.Fragment>
+
+
+      {/* <Helmet>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    </Helmet> */}
+      <div className={classes.messengerContainer}>
+
+
+        <div className={classes.overFlowBody}>
+
+          <div className={classes.imagesContainer}>
+            <div className={classes.imageContainer}>
+              <img className={classes.imagePetra} src={petra} alt="Petra" />
+              <img
+                className={classes.spartaLogo}
+                src={spartaLogo}
+                alt="sparta logo"
+              />
+
+              <div>
+                <h1 className={classes.textHeaderContainer}>
+                  <span className={classes.headerChange}>
+                    {" "}
+                    Im Herzen von <br></br> Dachau
+                  </span>
+                  <br></br>
+                  <span className={classes.yearText}>Seit 2040</span> <br></br>
+                  <a href="/" className={classes.icons}>
+                    <i className="fa fa-facebook-square"></i>
+                  </a>
+                  &nbsp; &nbsp;
+                  <a href="/" className={classes.icons}>
+                    <i className="fa fa-instagram"></i>
+                  </a>
+                </h1>
+              </div>
+            </div>
+            <video
+              className={classes.petraVideo}
+              src={spartaVideo}
+              muted
+              autoPlay
+              controls={false}
+              loop
+            />
+          </div>
+
+          <div className={classes.imagesContainerr}>
+            <img
+              className={classes.imagePetraSecond}
+              src={petraSecond}
+              alt="petra Second"
+
+
+            />
+
+
+            <div className={classes.headerSecondContainer}>
+              <h1 className={classes.headerSettings}>Wie alles begann...</h1>
+              <img className={classes.foodImage} src={foodImage} alt="food" />
+
+              <div className={`${classes.textImage} ${classes.iPadAir} ${classes.iPadMini}`}>
+                <h2 className={`${classes.homeHeaderChange}`}>Januar 2040</h2>
+                <p className={`${classes.homeTextChange} ${classes.col30}`}>
+                 
+                  Schon in jungen Jahren war unsere Liebe zur Gastronomie
+                  ' sehr groß!Vom Augenblick an als wir Dachau
+                  kennengelernt haben ist die Idee des Bakalikon
+                  entstanden.
+                 
+                </p>
+                {/* <p  className={classes.homeTextChange}>
+                Schon in jungen Jahren war unsere <br></br>Liebe zur Gastronomie
+                ' sehr groß!<br></br> Vom Augenblick an als wir Dachau <br></br>{" "}
+                kennengelernt haben ist die Idee <br></br>des Bakalikon
+                entstanden.
+              </p> */}
+              </div>
+            </div>
+          </div>
+          <div className={classes.imagesContainerIcons}>
+            <img src={currentImage} alt="food" className={classes.bigImage} />
+
+            <div className={classes.iconButtonsContainer}>
+              <FaChevronLeft
+                onClick={leftChangeHandler}
+                className={`${classes.iconLeftRight} ${classes.leftIconButton}`}
+              />
+
+              <FaChevronRight
+                onClick={rightChangeHandler}
+                className={`${classes.iconLeftRight} ${classes.rightIconButton}`}
+              />
+            </div>
+          </div>
+
+          <div className={classes.imagesContainer}>
+            <img
+              ref={petraBackgroundThirdRef}
+              src={petra}
+              className={`${classes.petraBackgroundThird}`}
+              alt="petraThird"
+            />
+            <div className={classes.transformImage}>
+              <div className={classes.transformImages}>
+                <div
+                  ref={imageTransform1Ref}
+                  className={`${classes.zoomContainer} `}
+                >
+                  <a href="/">
+                    <img
+                      ref={imageTransform1Ref}
+                      src={transformImageFirst}
+                      className={`${classes.imgTransform} ${classes.changeImagesTransform} ${classes.speisenTop} `}
+                      alt="food"
+                    // style={{width: "32rem", height: "55rem" }}
+                    />
+
+                    <h2
+                      ref={h2TransformRef}
+                      className={classes.centerH2TransformImage}
+                    >
+                      Speisen
+                    </h2>
+                  </a>
+                </div>
+              </div>
+              <div
+                ref={imageTransform2Ref}
+                className={`${classes.zoomContainer} ${classes.imageWeinLeft}`}
+              >
+                <a href="/">
+                  <img
+                    ref={imageTransform2Ref}
+                    src={transformImageSecondWein}
+                    className={`${classes.imgTransform} ${classes.weinLeft} ${classes.changeImagesTransform}  `}
+                    alt="foodx"
+                  // style={{width: "32rem", height: "55rem"}}
+                  />
+                  <h2
+                    ref={h2TransformRefWein}
+                    className={classes.centerH2TransformImageWein}
+                  >
+                    Wein
+                  </h2>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          
+          <div   className={classes.tsoukrismaWhiteBackground}>
+          {/* <VisibilitySensor
+          partialVisibility
+          onChange={(isVisible) => {
+            if(isVisible){
+              console.log("flicker")
+            }
+          }}
+        > */}
+          <div className={classes.containerParagraph}>
+            <img   alt="food" src={tsoukrisma} className={classes.tsoukrisma} />
+           
+           
+            <div className={classes.textImageTwo}>
+           
+              <h1 className={classes.UnserePhilosophie}> Unsere Philosophie
+              </h1>
+             
+             <div className={classes.widthText}>
+              <p className={`${classes.paragraphUnserePhilosophie} `}>
+                Wir glauben fest daran, dass Gastronomie 
+                 sehr eng mit
+                der Gastfreundschaft 
+                verbunden ist, welche eine
+                elementare Grundlage der menschlichen Zivilisation zum Ausdruck,bringt. Wir
+                gewähren Gastfreundschaft, weil dies für uns einen sehr
+                großen Wertdarstellt.
+                Einer der Grundpfeiler unseres
+                BAKALIKON Konzepts ist der Respekt
+                gegenüber unseren Gästen. Das macht uns erfolgreich und
+                einzigartig.
+
+               
+               
+               <br></br><br></br>
+               
+                  <span className={classes.textImageTwoRight}>
+                    Durch langjähriger Erfahrung ist es uns
+                    gelungen, es uns gelungen, hochwertige Dienstleistungen
+                    in einem gemütlichen undgastfreundlichen Ambiente
+                    anbieten zu können. Ein weiterer wichtiger Bestandteil
+                    unserer Küche ist, dass unsere Gerichte nur
+                    mit sorgfältig ausgewählten frischen Zutaten,
+                    tadelloser Herkunft und Qualität erzeugt werden.
+                   
+
+                   
+                  </span>
+                 
+                 
+              </p>
+             
+              </div>
+             
+              </div>
+              
+            </div>
+            {/* </VisibilitySensor> */}
     
   
-  
-  
-<div id="background">
-  <img src="https://cacaobeach.bg/images/gallery/e43d13c-ed41-2435-d75b-f346df184aa5.jpg"  class="stretch"    alt="background-image" >
-</div>
 
-
-<header id="header">
-  
-<img 
-     src="https://i1.sndcdn.com/avatars-BU8Wa345cz97Qlc3-Xg6liA-t500x500.jpg" 
-     alt="VD-logo" 
-     border="0" 
-     id="header-img"
-     width="110x";
-     >
-   
-<nav id="nav-bar">
-
-    <a  class="nav-link1" href="https://solamente.store/"> Shop </a> &nbsp; &nbsp; &nbsp;
-    
-    <a class="information" href="#infromation"> Information </a> &nbsp; &nbsp; &nbsp;
-    
-    <a class="nav-link" href="#Contract"> Contract </a> &nbsp; &nbsp; 
-
+              <h3 className={`${classes.Kareklas} ${classes.KareklasAnimation}`}>Kareklas Michail</h3>
+           
+           
+              <div/>
+             
             
-</nav>
-</header>
+        </div>
+      
+      
+          <div
+            className={`${classes.containerOffungszeiten} ${classes.imagesContainer}`}
+          >
+            <img alt="food" src={petra} className={classes.petraQuartor} />
+            <div className={classes.containerQuator}>
+             
+              <div className={classes.dayTextSize}>
+             
+                <table className={classes.timetable}>
+                  <thead>
+                    <tr className={classes.noBorder}>
+                      <th className={classes.Offnugszeiten}>Öffnungszeiten</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><span className={classes.montag}>Montag </span> </td>
+                      <td><span className={classes.montag}>Ruhetag</span></td>
 
 
-<body id="body">
+                    </tr>
+                    <tr>
+                      <td>Dienstag</td>
+                      <td>11:00 - 14:00 <br></br> <span className={classes.timeLeft}>17:00 - 00:00</span></td>
+                    </tr>
+                    <tr>
+                      <td>Mittwoch</td>
+                      <td>11:00 - 14:00 <br></br> <span className={classes.timeLeft}>17:00 - 00:00</span></td>
+                    </tr>
+                    <tr>
+                      <td>Donnerstag</td>
+                      <td>11:00 - 14:00 <br></br><span className={classes.timeLeft}>17:00 - 00:00</span></td>
+                    </tr>
+                    <tr>
+                      <td>Freitag</td>
+                      <td>11:00 - 14:00 <br></br> <span className={classes.timeLeft}>17:00 - 00:00</span></td>
+                    </tr>
+                    <tr>
+                      <td>Samstag</td>
+                      <td>11:00 - 14:00 <br></br><span className={classes.timeLeft}>17:00 - 00:00</span></td>
+                    </tr>
 
- 
-  
+                    <tr className={classes.noBorder}>
+                      <td>Sonntag</td>
+                      <td>11:00 – 22:00<br></br><span className={classes.timeLeft}>durchgehend</span></td>
+                    </tr>
+                  </tbody>
+                </table>
 
 
+              </div>
+            </div>
+          </div>
+
+          <div className={classes.imagesContainer}>
+            <div className={classes.containerAdress}>
+              <h1 className={classes.adresse}>Adresse</h1>
+              <span>
+                Augsburger Str. 12,<br></br> <span>85221 Dachau</span>
+              </span>
+              <h3>Phone:</h3>{" "}
+              <span className={classes.adressSpanBottom}>+49 8131 4309469</span>
+              <h3>Email: </h3>{" "}
+              <span className={classes.adressSpanBottom}>info@bakalikon.de</span>
+            </div>
+          </div>
 
 
+          <div className={classes.imageContainer}>
+            <img alt="food" src={adressImage} className={classes.adressImage} />
+          </div>
 
-<div id="padding"> 
- 
-<section id="portofolio">
-  
-  
-  <div id="youtube-logo" align="center" style="width: 100%; height: auto; overflow: hidden; align">
-
- <a  target="_blank" href="https://www.youtube.com/channel/UCzwZvELsW3A4D0wtJZvtznQ"> 
- <img src="https://pngimg.com/uploads/youtube/youtube_PNG2.png" alt="youtube-logo" width= "10%";>
- </a>
- 
-
-  <h2>  YouTube Videos </h2>
-  
-        <p> See my videos on www.youtube.com/channel/UCzwZvELsW3A4D0wtJZvtznQ</p>
+          <div className={classes.footer}>
+            <a href="/" className={classes.footerAtag}>
+              Datenschutzerklärung • © Bakalikon 2022 • Dachau • Powered with love
+            </a>
+          </div>
+      
+        </div>
       </div>
-  
-  <div id="phone-logo" align="center" style="width: 100%; height: auto; overflow: hidden">
-    <br>
-    <br> 
-    <br>
-    <br> 
-    <br>
-    <br> 
-    <br>
-    <br> 
- <a  target="_blank" href="https://www.instagram.com/deborahdeluca/?hl=el"> 
-  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQXO2p5Jqo2rRvko3wQJu9Ps4RI4LwyF9TNRH2TyxmRTawEwi12vR4_d428xM7yddYXd0k&usqp=CAU" 
-  alt="phone-logo" width= "10%";>
- </a>
-    
-  <h2> Software Projects </h2> 
- <p> See my Instagram on www.instagram.com/deborahdeluca/?hl=el</p>
-  </div>
-  
-</section>
 
 
+    </React.Fragment>
+  );
+};
 
-<section id="mystory">
- <div id="storylayover" align="left" style="width: 100%; overflow: hidden">
-
-  <iframe 
-  id="video" 
-  align="right"
-  width="560" 
-  height="315" 
-  src="https://www.youtube.com/embed/yEbrvMljMCg" 
-  frameborder="0" 
-  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-  allowfullscreen>
-</iframe>
-      <h3> Hi my name is Deborah De Luca </h3>
-     
-   <h2> <i> How to contract With me</i> <h2>
- 
- </div>
-</section>
-
-</body>
-
-<footer>
-<div id="storylayover" align="left" style="width: 100%; overflow: hidden">
-<form id="form" action="" >
-  
-    <input 
-           id="text" 
-           type="text" 
-           name="text" 
-           placeholder="Have a question?" 
-           class="text" 
-           required> 
-    </input>
-<br>
-<input 
-           id="email" 
-           type="email" 
-           name="email" 
-           placeholder="What email would you like to be responded to?" 
-           class="email" 
-           required> 
-    </input>
-<br>
-    <input 
-           id="submit" 
-           onclick="alert('we received the message we will contact you as soon as possible')"
-           type="submit" 
-           value="Ask Now" 
-           class="submit">
-     </input>
-</form>
-</div>  
-
-</footer>
-
-</div>
-</div>
-</div>
-
-  <script src="deborah.js"></script>
-</body>
-
-
-</html>
+export default Home;
